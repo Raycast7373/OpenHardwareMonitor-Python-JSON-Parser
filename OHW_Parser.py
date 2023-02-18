@@ -37,10 +37,8 @@ def PrintAllInfo():
                 data_name = data['Text']
                 print(data_name, ":", "min:", data_min, "max:", data_max, "current:", data_current)
                 countc+=1
-
             countc=0
             countb+=1
-
         countb=0
         counta+=1
         print("")
@@ -53,6 +51,11 @@ while loop == True:
     OHW_DICT = json.loads(requests.get(OHW_ADDRESS).text)
     PrintAllInfo() # prints all data from openhardwaremonitor
     time.sleep(1)
+
+if loop == False:
+    OHW_ADDRESS = "http://"+HostIP+":"+HostPort+"/data.json"
+    OHW_DICT = json.loads(requests.get(OHW_ADDRESS).text)
+    PrintAllInfo() # prints all data from openhardwaremonitor
 
 #CPU
 #BLCK
